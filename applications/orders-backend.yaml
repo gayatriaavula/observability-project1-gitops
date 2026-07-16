@@ -1,0 +1,34 @@
+# Register this with: kubectl apply -f root-app.yaml (applies automatically
+# as part of the app-of-apps once this repo is registered).
+# k8s manifests live in the app repo, not here -- see source.repoURL below.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: orders-backend
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/gayatriaavula/observability-project1.git
+    targetRevision: main
+    path: k8s/base
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: orders-backend
+
+  syncPolicy:
+    automated:
+      prune: true     # remove resources deleted from git
+      selfHeal: true  # revert manual kubectl edits back to what's in git
+    syncOptions:
+      - CreateNamespace=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m

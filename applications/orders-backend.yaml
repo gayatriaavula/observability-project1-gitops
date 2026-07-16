@@ -1,6 +1,7 @@
 # Register this with: kubectl apply -f root-app.yaml (applies automatically
 # as part of the app-of-apps once this repo is registered).
-# k8s manifests live in the app repo, not here -- see source.repoURL below.
+# k8s manifests live in this repo under k8s/base -- CI in observability-project1
+# pushes image-tag-bump commits here (see .github/workflows/ci-cd.yml there).
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -12,7 +13,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/gayatriaavula/observability-project1.git
+    repoURL: https://github.com/gayatriaavula/observability-project1-gitops.git
     targetRevision: main
     path: k8s/base
 

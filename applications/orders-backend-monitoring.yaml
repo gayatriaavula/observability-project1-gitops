@@ -1,6 +1,6 @@
 # ServiceMonitor + PrometheusRule for orders-backend. Sync this after
 # kube-prometheus-stack.yaml, since it depends on the CRDs that chart installs.
-# k8s manifests live in the app repo, not here -- see source.repoURL below.
+# k8s manifests live in this repo under k8s/monitoring.
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -12,7 +12,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/gayatriaavula/observability-project1.git
+    repoURL: https://github.com/gayatriaavula/observability-project1-gitops.git
     targetRevision: main
     path: k8s/monitoring
 

@@ -20,5 +20,5 @@ resources:
 # Argo CD picks it up and syncs the new image.
 images:
 - name: orders-backend
-  newName: 866934333672.dkr.ecr.us-east-1.amazonaws.com/orders-backend
-  newTag: dbc0cb7c8140a2249a4d587568a15b17940f23b3
+  newName: 866934333672.dkr.ecr.us-east-1.amazonaws.com/orders-backend-dev
+  newTag: a002ec2db8138209ff27861e622f424b1a6d93de

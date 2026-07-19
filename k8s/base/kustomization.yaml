@@ -21,4 +21,4 @@ resources:
 images:
 - name: orders-backend
   newName: 866934333672.dkr.ecr.us-east-1.amazonaws.com/orders-backend-dev
-  newTag: 63b468d29704fe904b69d081eb8466e3de034dba
+  newTag: 68fa3a349abe5de8ba67c3e96376ccae35e659b8

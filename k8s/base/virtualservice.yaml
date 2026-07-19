@@ -4,8 +4,9 @@ metadata:
   name: orders-backend
   namespace: orders-backend
 spec:
+  # Matches the Gateway's "*" -- see gateway.yaml for why.
   hosts:
-    - "api.company.com"
+    - "*"
   gateways:
     - orders-gateway
   http:

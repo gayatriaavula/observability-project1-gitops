@@ -18,5 +18,9 @@ spec:
         # Create this TLS secret in istio-ingress ahead of time, e.g. via
         # cert-manager or `kubectl create secret tls`.
         credentialName: api-company-com-tls
+      # "*" instead of a specific hostname: this cluster isn't wired to a
+      # real registered domain yet, so accept the raw AWS Load Balancer
+      # hostname directly rather than requiring a hosts-file / DNS override
+      # for api.company.com. Narrow this back down once real DNS exists.
       hosts:
-        - "api.company.com"
+        - "*"
